@@ -47,7 +47,7 @@
                                                 {{__('Description')}}</th>
                                             <th scope="col"
                                                 class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                                                {{__('Price')}}</th>
+                                                {{__('Price')}} BS.</th>
                                             <th scope="col"
                                                 class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
                                                 {{__('Stock Quantity')}}
@@ -55,6 +55,10 @@
                                             <th scope="col"
                                                 class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
                                                 {{__('Category')}}
+                                            </th>
+                                            <th scope="col"
+                                                class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                                                {{__('Brand')}}
                                             </th>
 
                                             <th scope="col"
@@ -68,17 +72,21 @@
                                         <tr class="even:bg-gray-50 dark:even:bg-gray-600">
                                             <td
                                                 class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-semibold text-gray-900 dark:text-gray-200">
-                                                {{ ++$i }}</td>
+                                                {{ ++$i }}
+                                            </td>
 
                                             <td
                                                 class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300">
-                                                {{ $product->code }}</td>
+                                                {{ $product->code }}
+                                            </td>
                                             <td
                                                 class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300">
-                                                {{ $product->name }}</td>
+                                                {{ $product->name }}
+                                            </td>
                                             <td
                                                 class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300">
-                                                {{ $product->description }}</td>
+                                                {{ Str::limit($product->description, 10) }}
+                                            </td>
                                             <td
                                                 class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300">
                                                 {{ $product->price }}
@@ -100,6 +108,10 @@
                                             <td
                                                 class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300">
                                                 {{ $product->category->name }}
+                                            </td>
+                                            <td
+                                                class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300">
+                                                {{ $product->brand->name }}
                                             </td>
 
                                             <td

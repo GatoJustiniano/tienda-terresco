@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Http\RedirectResponse;
 
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Redirect;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
@@ -32,8 +33,9 @@ class ProductController extends Controller
     {
         $product = new Product();
         $categories = Category::orderBy('name')->get();
+        $brands = Brand::orderBy('name')->get();
 
-        return view('product.create', compact('product', 'categories'));
+        return view('product.create', compact('product', 'categories', 'brands'));
     }
 
     /**
@@ -64,8 +66,9 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $categories = Category::orderBy('name')->get();
+        $brands = Brand::orderBy('name')->get();
 
-        return view('product.edit', compact('product', 'categories'));
+        return view('product.edit', compact('product', 'categories', 'brands'));
     }
 
     /**
