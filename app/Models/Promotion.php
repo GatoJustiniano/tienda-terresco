@@ -1,5 +1,4 @@
 <?php
-// app/Models/Promotion.php
 
 namespace App\Models;
 

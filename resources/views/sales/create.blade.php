@@ -18,10 +18,10 @@
                         <thead>
                         <tr>
                             <th class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Product') }}</th>
-                            <th class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Stock') }}</th>
+                            <th class="py-3 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Stock') }}</th>
                             <th class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Quantity') }}</th>
-                            <th class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Unit Price') }}</th>
-                            <th class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Total') }}</th>
+                            <th class="py-3 pl-4 pr-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Unit Price') }}</th>
+                            <th class="py-3 pl-4 pr-3 text-right text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Total') }}</th>
                             <th class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Actions') }}</th>
                         </tr>
                         </thead>
@@ -29,7 +29,7 @@
                         <tr>
                             <td>
                                 <select name="products[0][id]" class="product-select dark:bg-gray-600 dark:text-gray-200" required>
-                                    <option value="">{{ __('Select Product') }}</option>
+                                    <option value="" selected disabled>{{ __('Select Product') }}</option>
                                     @foreach ($products as $product)
                                         <option value="{{ $product->id }}" data-price="{{ $product->price }}" data-stock="{{ $product->stock_quantity }}">
                                             {{ $product->name }}
@@ -41,27 +41,36 @@
                             <td>
                                 <input type="number" name="products[0][quantity]" class="quantity-input dark:bg-gray-600 dark:text-gray-200" min="1" required>
                             </td>
-                            <td class="unit-price dark:text-gray-200">0.00</td>
-                            <td class="total-price dark:text-gray-200">0.00</td>
+                            <td class="unit-price text-right pr-3 dark:text-gray-200">0.00</td>
+                            <td class="total-price text-right pr-3 dark:text-gray-200">0.00</td>
                             <td>
-                                <button type="button" class="remove-row text-red-600 dark:text-red-400 hover:text-red-900 dark:hover:text-red-100">{{ __('Remove Row') }}</button>
+                                <button type="button" class="remove-row text-red-600 ml-5 dark:text-red-400 hover:text-red-900 dark:hover:text-red-100">{{ __('Remove Row') }}</button>
                             </td>
                         </tr>
                         </tbody>
                         <tfoot>
                         <tr>
                             <td colspan="4" class="text-right py-3 pl-4 pr-3 text-sm font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Total') }}</td>
-                            <td class="total-price-summary dark:text-gray-200">0.00</td>
+                            <td class="total-price-summary text-right pr-3 dark:text-gray-200">0.00</td>
                             <td></td>
                         </tr>
                         </tfoot>
                     </table>
 
-                    <button type="button" id="add-product-row" class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-500">{{ __('Add Product') }}</button>
+                    <button type="button" id="add-product-row" 
+                        class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-500">
+                        {{ __('Add Product') }}
+                    </button>
 
-                    <button type="submit" class="text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">{{__('Save Sale')}}</button>
+                    <button type="submit" 
+                        class="text-white bg-green-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
+                        {{__('Save Sale')}}
+                    </button>
 
-                    <a type="button" href="{{ route('sales.index') }}" class="rounded-md bg-red-600  px-5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">{{__('Back')}}</a>
+                    <a type="button" href="{{ route('sales.index') }}" 
+                        class="rounded-md bg-red-600  px-5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                        {{__('Back')}}
+                    </a>
                 </form>
             </div>
         </div>

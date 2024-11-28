@@ -1,5 +1,4 @@
 <?php
-// app/Models/Inventory.php
 
 namespace App\Models;
 

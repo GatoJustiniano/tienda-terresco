@@ -1,5 +1,4 @@
 <?php
-// app/Models/SaleDetail.php
 
 namespace App\Models;
 
@@ -11,7 +10,10 @@ class SaleDetail extends Model
     use HasFactory;
 
     protected $fillable = [
-        'sale_id', 'product_id', 'quantity', 'price'
+        'sale_id', 
+        'product_id', 
+        'quantity', 
+        'price'
     ];
 
     public function sale()

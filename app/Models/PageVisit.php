@@ -1,5 +1,4 @@
 <?php
-// app/Models/PageVisit.php
 
 namespace App\Models;
 

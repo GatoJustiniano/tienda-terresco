@@ -27,10 +27,10 @@
                                     <thead class="bg-gray-50 dark:bg-gray-800">
                                     <tr>
                                         <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('No') }}</th>
-                                        <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('User') }}</th>
+                                        <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Seller') }}</th>
                                         <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Sale Date') }}</th>
                                         <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Total Products') }}</th>
-                                        <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Total Cost') }}</th>
+                                        <th scope="col" class="py-3 pl-4 pr-3 text-center text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Total Cost') }}</th>
                                         <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('State') }}</th>
                                         <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500 dark:text-gray-400">{{ __('Actions') }}</th>
                                     </tr>
@@ -41,8 +41,8 @@
                                             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-semibold text-gray-900 dark:text-gray-200">{{ ++$i }}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300">{{ $sale->user->name }}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300">{{ $sale->sale_date }}</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300">{{ $sale->saleDetails->sum('quantity') }}</td>
-                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300">{{ $sale->total_amount }}</td>
+                                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 dark:text-gray-300">{{ $sale->saleDetails->count() }}</td>
+                                            <td class="text-right pr-10 text-sm text-gray-500 dark:text-gray-300">{{ $sale->total_amount }}</td>
                                             <td class="whitespace-nowrap px-3 py-4 text-sm">
                                                 <span class="{{ $sale->state == 'PENDING' ? 'bg-blue-100 text-blue-800 dark:bg-blue-400 dark:text-black' : ($sale->state == 'PAYED' ? 'bg-green-100 text-green-800 dark:bg-green-400 dark:text-black' : 'bg-red-100 text-red-800 dark:bg-red-400 dark:text-black' ) }} px-2 inline-flex text-xs leading-5 font-semibold rounded-full">
                                                     {{$sale->state == 'PENDING' ? __('Pending') : ($sale->state == 'PAYED' ? __('Payed') : __('Canceled'))}}

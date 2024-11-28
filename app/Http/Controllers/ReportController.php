@@ -13,6 +13,7 @@ class ReportController extends Controller
     {
         // Datos para el reporte de ventas por fecha
         $salesByDate = Sale::selectRaw('DATE(created_at) as date, SUM(total_amount) as total')
+            ->where('state', 'PAYED')
             ->groupBy('date')
             ->orderBy('date')
             ->get();
@@ -35,6 +36,7 @@ class ReportController extends Controller
         $topProducts = Sale::join('sale_details', 'sales.id', '=', 'sale_details.sale_id')
             ->join('products', 'sale_details.product_id', '=', 'products.id')
             ->select('products.name', Sale::raw('SUM(sale_details.quantity) as total_quantity'))
+            ->where('state', 'PAYED')
             ->groupBy('products.name')
             ->orderBy('total_quantity', 'desc')
             ->limit(10)

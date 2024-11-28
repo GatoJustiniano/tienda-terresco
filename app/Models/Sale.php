@@ -1,5 +1,4 @@
 <?php
-// app/Models/Sale.php
 
 namespace App\Models;
 
