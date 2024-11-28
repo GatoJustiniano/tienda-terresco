@@ -54,7 +54,7 @@ class FortifyServiceProvider extends ServiceProvider
         });
 
         Gate::define('access-common', function ($user) {
-            return in_array($user->role, ['administrador', 'cliente']);
+            return in_array($user->role, ['administrador', 'vendedor']);
         });
     }
 }

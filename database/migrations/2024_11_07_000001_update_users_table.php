@@ -12,7 +12,7 @@ return new class extends Migration
     {
         // Paso 1: Agregar la columna `role` permitiendo valores nulos inicialmente
         Schema::table('users', function (Blueprint $table) {
-            $table->enum('role', ['cliente', 'administrador'])->nullable()->after('profile_photo_path');
+            $table->enum('role', ['vendedor', 'administrador'])->nullable()->after('profile_photo_path');
         });
 
         // Paso 2: Asignar un valor por defecto a la columna `role` para los registros existentes

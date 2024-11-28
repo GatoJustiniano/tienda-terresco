@@ -21,43 +21,6 @@
                         </div>
                     @endif
                 @endforeach
-
-{{--                @can('admin')--}}
-{{--                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">--}}
-{{--                    <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">--}}
-{{--                        {{ __('Dashboard') }}--}}
-{{--                    </x-nav-link>--}}
-{{--                </div>--}}
-{{--                @endcan--}}
-{{--                @can('access-common')--}}
-{{--                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">--}}
-{{--                    <x-nav-link href="{{ route('products.index') }}" :active="request()->routeIs('products.index')">--}}
-{{--                        {{ __('Products') }}--}}
-{{--                    </x-nav-link>--}}
-{{--                </div>--}}
-{{--                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">--}}
-{{--                    <x-nav-link href="{{ route('promotions.index') }}" :active="request()->routeIs('promotions.index')">--}}
-{{--                        {{ __('Promotions') }}--}}
-{{--                    </x-nav-link>--}}
-{{--                </div>--}}
-{{--                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">--}}
-{{--                    <x-nav-link href="{{ route('reservations.index') }}" :active="request()->routeIs('reservations.index')">--}}
-{{--                        {{ __('Reservations') }}--}}
-{{--                    </x-nav-link>--}}
-{{--                </div>--}}
-{{--                @endcan--}}
-{{--                @can('admin')--}}
-{{--                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">--}}
-{{--                        <x-nav-link href="{{ route('inventories.index') }}" :active="request()->routeIs('inventories.index')">--}}
-{{--                            {{ __('Inventories') }}--}}
-{{--                        </x-nav-link>--}}
-{{--                    </div>--}}
-{{--                    <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">--}}
-{{--                        <x-nav-link href="{{ route('sales.index') }}" :active="request()->routeIs('sales.index')">--}}
-{{--                            {{ __('Sales') }}--}}
-{{--                        </x-nav-link>--}}
-{{--                    </div>--}}
-{{--                @endcan--}}
             </div>
 
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -206,8 +169,8 @@
             </x-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">
-            <x-nav-link href="{{ route('reservations.index') }}" :active="request()->routeIs('reservations.index')">
-                {{ __('Reservations') }}
+            <x-nav-link href="{{ route('categories.index') }}" :active="request()->routeIs('categories.index')">
+                {{ __('Categories') }}
             </x-nav-link>
         </div>
         <div class="pt-2 pb-3 space-y-1">

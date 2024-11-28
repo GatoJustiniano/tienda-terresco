@@ -24,8 +24,8 @@ class CheckRole
         if (!$user || !in_array($user->role, $roles)) {
             if ($user->role == 'administrador'){
                 return redirect('/dashboard');
-            }elseif (($user->role == 'cliente')){
-                return redirect('/reservations');
+            }elseif (($user->role == 'vendedor')){
+                return redirect('/promotions');
             }
             return redirect('/'); // Redirigir a la página principal si el usuario no tiene acceso
         }

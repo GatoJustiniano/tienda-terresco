@@ -32,8 +32,8 @@ class MenuSeeder extends Seeder
             'order' => 3
         ]);
         Menu::factory()->create([
-            'name' => 'Reservations',
-            'route' => 'reservations.index',
+            'name' => 'Categories',
+            'route' => 'categories.index',
             'role_access' => 'access-common',
             'order' => 4
         ]);

@@ -5,7 +5,7 @@ use App\Http\Controllers\InventoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\PromotionController;
 use App\Http\Controllers\ReportController;
-use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SettingsController;
@@ -43,9 +43,9 @@ Route::middleware([
 
     });
 
-    Route::middleware([CheckRole::class . ':administrador,cliente'])->group(function () {
+    Route::middleware([CheckRole::class . ':administrador,vendedor'])->group(function () {
         Route::resource('products', ProductController::class)->except(['create','store', 'edit','update','destroy']);
-        Route::resource('reservations', ReservationController::class);
+        Route::resource('categories', CategoryController::class);
         Route::resource('promotions', PromotionController::class)->only('index');
         Route::get('user/profile', function () {
             return view('profile.show');

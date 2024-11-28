@@ -36,7 +36,7 @@
                         <select name="role" id="role" class="mt-1 block w-full rounded-md bg-gray-100 dark:bg-gray-600 dark:text-gray-200" required>
                             <option value="">{{ __('Select Role') }}</option>
                             <option value="administrador">{{ __('Administrator') }}</option>
-                            <option value="cliente">{{ __('Client') }}</option>
+                            <option value="vendedor">{{ __('Seller') }}</option>
                         </select>
                     </div>
 

@@ -45,12 +45,7 @@
                                         <tr>
                                             <td class="px-4 py-4 text-sm font-medium text-gray-900 dark:text-gray-200">{{ __('Stock Quantity') }}</td>
                                             <td class="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">{{ $product->stock_quantity }}</td>
-                                        </tr>
-                                        <tr class="bg-yellow-100 dark:bg-yellow-700">
-                                            <td class="px-4 py-4 text-sm font-bold text-gray-900 dark:text-gray-100">{{ __('Total Reservations') }}</td>
-                                            <td class="px-4 py-4 text-sm font-bold text-gray-900 dark:text-gray-100">{{ $product->reservationDetails->sum('reserved_quantity') }}</td>
-                                        </tr>
-
+                                        </tr>                                        
                                         </tbody>
                                     </table>
                                 </div>

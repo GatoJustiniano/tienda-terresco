@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreProductRequest;
-use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
-use Illuminate\Http\RedirectResponse;
+use App\Models\Category;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 use Illuminate\Support\Facades\Redirect;
-use Illuminate\View\View;
+use App\Http\Requests\StoreProductRequest;
+use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
@@ -30,8 +31,9 @@ class ProductController extends Controller
     public function create(): View
     {
         $product = new Product();
+        $categories = Category::orderBy('name')->get();
 
-        return view('product.create', compact('product'));
+        return view('product.create', compact('product', 'categories'));
     }
 
     /**
@@ -61,8 +63,9 @@ class ProductController extends Controller
     public function edit($id): View
     {
         $product = Product::find($id);
+        $categories = Category::orderBy('name')->get();
 
-        return view('product.edit', compact('product'));
+        return view('product.edit', compact('product', 'categories'));
     }
 
     /**

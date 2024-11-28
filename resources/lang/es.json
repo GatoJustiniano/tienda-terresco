@@ -253,7 +253,18 @@
     "Promotion created successfully.": "Promoción creada exitosamente.",
     "Promotion deleted successfully.": "Promoción eliminada exitosamente.",
     "Promotion updated successfully.": "Promoción actualizada exitosamente.",
+    "Add a new Category": "Agregar nueva categoría.",
+    "Category created successfully.": "Categoría creada exitosamente.",
+    "Category deleted successfully.": "Categoría eliminada exitosamente.",
+    "Category updated successfully.": "Categoría actualizada exitosamente.",
     "Sale created successfully.": "Venta creada exitosamente.",
     "Sale canceled successfully.": "Venta cancelada exitosamente.",
-    "User created successfully.": "Usuario creado exitosamente."
+    "User created successfully.": "Usuario creado exitosamente.",
+    
+    "Category": "Categoría",
+    "Categories": "Categorias",
+    "Select Role": "Seleccionar Rol",
+    "Client": "Cliente",
+    "Seller": "Vendedor",
+    "Administrator": "Administrador"
 }
