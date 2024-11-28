@@ -31,11 +31,24 @@
                                 <select name="products[0][id]" class="product-select dark:bg-gray-600 dark:text-gray-200" required>
                                     <option value="" selected disabled>{{ __('Select Product') }}</option>
                                     @foreach ($products as $product)
-                                        <option value="{{ $product->id }}" data-price="{{ $product->price }}" data-stock="{{ $product->stock_quantity }}">
+                                        @php
+                                            // Verificar si el producto tiene una promoción activa
+                                            $activePromotion = $product->promotions->first(fn($promotion) => $promotion->isActive());
+                                        @endphp
+                                        <option 
+                                            value="{{ $product->id }}" 
+                                            data-price="{{ $activePromotion ? $product->priceWithDiscount($activePromotion) : $product->price }}" 
+                                            data-stock="{{ $product->stock_quantity }}" 
+                                            data-discount_percentage="{{ $activePromotion?->discount_percentage ?? 0 }}"
+                                        >
                                             {{ $product->name }}
+                                            @if ($activePromotion)
+                                                ({{ $activePromotion->discount_percentage }}% OFF - {{ $product->priceWithDiscount($activePromotion) }})
+                                            @endif
                                         </option>
                                     @endforeach
                                 </select>
+                                
                             </td>
                             <td class="stock-info dark:text-gray-200">0</td>
                             <td>

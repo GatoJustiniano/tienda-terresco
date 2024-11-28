@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use App\Models\Brand;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
@@ -24,6 +25,34 @@ class Product extends Model
     public function promotions()
     {
         return $this->hasMany(Promotion::class);
+    }
+
+    public function scopeWithActivePromotions($query)
+    {
+        $today = Carbon::today();
+
+        return $query->whereHas('promotions', function ($query) use ($today) {
+            $query->where('start_date', '<=', $today)
+                ->where('end_date', '>=', $today);
+        });
+    }
+
+    // obtener los productos sin promociones activas
+    public function scopeWithInactivePromotions($query)
+    {
+        $today = Carbon::today(); 
+
+        return $query->whereDoesntHave('promotions', function ($query) use ($today) {
+            $query->where('start_date', '<=', $today)
+                ->where('end_date', '>=', $today);
+        });
+    }
+
+    // Método para calcular el precio con descuento
+    public function priceWithDiscount(Promotion $promotion)
+    {
+        $discount = $promotion->discountAmount($this);
+        return $this->price - $discount;
     }
 
     public function inventoryDetails()

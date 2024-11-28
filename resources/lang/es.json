@@ -272,6 +272,8 @@
     "Select Role": "Seleccionar Rol",
     "Select Brand": "Seleccionar Marca",
     "Select Category": "Seleccionar Categoría",
+    "Current": "Vigente",
+    "Expired": "Expirado",
     "Client": "Cliente",
     "Seller": "Vendedor",
     "Administrator": "Administrador"

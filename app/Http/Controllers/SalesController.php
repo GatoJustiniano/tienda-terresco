@@ -28,6 +28,7 @@ class SalesController extends Controller
     public function create()
     {
         $products = Product::all();
+        //$products = Product::withActivePromotions()->get();
         return view('sales.create', compact('products'));
     }
 

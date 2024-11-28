@@ -25,6 +25,7 @@ class ReportController extends Controller
         $salesByProduct = Sale::join('sale_details', 'sales.id', '=', 'sale_details.sale_id')
             ->join('products', 'sale_details.product_id', '=', 'products.id')
             ->select('products.name', Sale::raw('SUM(sale_details.quantity * sale_details.price) as total'))
+            ->where('state', 'PAYED')
             ->groupBy('products.name')
             ->orderBy('total', 'desc')
             ->get();

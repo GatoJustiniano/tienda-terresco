@@ -66,7 +66,11 @@
                                             <th scope="col"
                                                 class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">{{ __('Start Date') }}</th>
                                             <th scope="col"
-                                                class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">{{ __('End Date') }}</th>
+                                                class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">{{ __('End Date') }}
+                                            </th>
+                                            <th scope="col"
+                                                class="px-4 py-2 text-left text-xs font-medium text-gray-500 dark:text-gray-300 uppercase tracking-wider">{{ __('State') }}
+                                            </th>
                                         </tr>
                                         </thead>
                                         <tbody
@@ -81,6 +85,13 @@
                                                 </td>
                                                 <td class="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">{{ $promotion->start_date }}</td>
                                                 <td class="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">{{ $promotion->end_date }}</td>
+                                                <td class="px-4 py-4 text-sm text-gray-700 dark:text-gray-300">
+                                                    @if ($promotion->isActive())
+                                                        {{ __('Current') }}
+                                                    @else
+                                                        {{ __('Expired') }}
+                                                    @endif
+                                                </td>
                                             </tr>
                                         @endforeach
                                         @if($product->promotions->isEmpty())

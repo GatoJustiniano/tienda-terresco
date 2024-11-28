@@ -29,7 +29,7 @@ class PromotionController extends Controller
      */
     public function create(): View
     {
-        $products = Product::all();
+        $products = Product::withInactivePromotions()->get();
         return view('promotion.create', compact('products'));
     }
 
