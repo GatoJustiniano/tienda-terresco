@@ -32,22 +32,28 @@ class MenuSeeder extends Seeder
             'order' => 3
         ]);
         Menu::factory()->create([
+            'name' => 'Brands',
+            'route' => 'brands.index',
+            'role_access' => 'admin',
+            'order' => 4
+        ]);
+        Menu::factory()->create([
             'name' => 'Categories',
             'route' => 'categories.index',
-            'role_access' => 'access-common',
-            'order' => 4
+            'role_access' => 'admin',
+            'order' => 5
         ]);
         Menu::factory()->create([
             'name' => 'Inventories',
             'route' => 'inventories.index',
             'role_access' => 'admin',
-            'order' => 5
+            'order' => 6
         ]);
         Menu::factory()->create([
             'name' => 'Sales',
             'route' => 'sales.index',
-            'role_access' => 'admin',
-            'order' => 6
+            'role_access' => 'access-common',
+            'order' => 7
         ]);
     }
 }

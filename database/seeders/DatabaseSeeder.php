@@ -26,6 +26,12 @@ class DatabaseSeeder extends Seeder
             'role' => 'administrador',
             'password' => Hash::make('admin5095')
         ]);
+        User::factory()->create([
+            'name' => 'Vendedor',
+            'email' => 'vendedor@gmail.com',
+            'role' => 'vendedor',
+            'password' => Hash::make('vendedor')
+        ]);
 
         $this->call([
             MenuSeeder::class,

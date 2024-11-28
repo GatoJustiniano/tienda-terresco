@@ -11,17 +11,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
-class CategoryController extends Controller
+class BrandController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index(Request $request): View
     {
-        $brand = Brand::paginate();
+        $brands = Brand::paginate();
 
-        return view('brand.index', compact('brand'))
-            ->with('i', ($request->input('page', 1) - 1) * $brand->perPage());
+        return view('brand.index', compact('brands'))
+            ->with('i', ($request->input('page', 1) - 1) * $brands->perPage());
     }
 
     /**
