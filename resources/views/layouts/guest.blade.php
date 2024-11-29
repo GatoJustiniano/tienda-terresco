@@ -4,6 +4,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
+        <!-- Favicon -->
+        <link rel="icon" type="image/vnd.microsoft.icon" href="{{ url('/favicon.ico') }}">
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 

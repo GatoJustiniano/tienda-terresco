@@ -41,7 +41,7 @@ class BrandController extends Controller
     {
         Brand::create($request->validated());
 
-        return Redirect::route('brand.index')
+        return Redirect::route('brands.index')
             ->with('success', __('Brand created successfully.'));
     }
 
@@ -74,7 +74,7 @@ class BrandController extends Controller
         $brand = Brand::findOrFail($product_id);
         $brand->update($request->validated());
 
-        return Redirect::route('brand.index')
+        return Redirect::route('brands.index')
             ->with('success', __('Brand updated successfully.'));
     }
 
